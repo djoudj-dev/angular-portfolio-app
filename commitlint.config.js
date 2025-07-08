@@ -5,9 +5,10 @@ module.exports = {
       2,
       'always',
       [
-        // Types en français
-        'ajout',      // ajout de nouvelles fonctionnalités
-        'correctif',  // correction de bugs
+        // Types conventionnels en anglais
+        'feat',       // new features
+        'fix',        // bug fixes
+        'chore',      // maintenance tasks
         'docs',       // documentation
         'style',      // formatage, points-virgules manquants, etc.
         'refactor',   // refactorisation du code
@@ -15,18 +16,13 @@ module.exports = {
         'test',       // ajout de tests
         'build',      // modifications du système de build
         'ci',         // modifications CI
-        'revert',     // annulation d'un commit précédent
-        'maintenance', // maintenance générale
-        // Types conventionnels en anglais
-        'feat',       // new features
-        'fix',        // bug fixes
-        'chore'       // maintenance tasks
+        'revert'      // annulation d'un commit précédent
       ]
     ],
     'type-case': [2, 'always', 'lower-case'],
     'type-empty': [2, 'never'],
     'scope-case': [2, 'always', 'lower-case'],
-    'subject-case': [2, 'always', 'sentence-case'],
+    'subject-case': [2, 'always', 'lower-case'],
     'subject-empty': [2, 'never'],
     'subject-full-stop': [2, 'never', '.'],
     'header-max-length': [2, 'always', 100],
