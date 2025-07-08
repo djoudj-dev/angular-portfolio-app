@@ -46,13 +46,13 @@ module.exports = {
     },
     types: [
       {
-        value: 'ajout',
-        name: 'ajout:      Ajout d\'une nouvelle fonctionnalité',
+        value: 'feat',
+        name: 'feat:       Ajout d\'une nouvelle fonctionnalité',
         emoji: ':sparkles:'
       },
       {
-        value: 'correctif',
-        name: 'correctif:  Correction d\'un bug',
+        value: 'fix',
+        name: 'fix:        Correction d\'un bug',
         emoji: ':bug:'
       },
       {
@@ -96,8 +96,8 @@ module.exports = {
         emoji: ':rewind:'
       },
       {
-        value: 'maintenance',
-        name: 'maintenance: Maintenance générale',
+        value: 'chore',
+        name: 'chore:      Maintenance générale',
         emoji: ':wrench:'
       }
     ],
