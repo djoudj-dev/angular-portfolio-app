@@ -5,6 +5,7 @@ module.exports = {
       2,
       'always',
       [
+        // Types en français
         'ajout',      // ajout de nouvelles fonctionnalités
         'correctif',  // correction de bugs
         'docs',       // documentation
@@ -15,7 +16,11 @@ module.exports = {
         'build',      // modifications du système de build
         'ci',         // modifications CI
         'revert',     // annulation d'un commit précédent
-        'maintenance' // maintenance générale
+        'maintenance', // maintenance générale
+        // Types conventionnels en anglais
+        'feat',       // new features
+        'fix',        // bug fixes
+        'chore'       // maintenance tasks
       ]
     ],
     'type-case': [2, 'always', 'lower-case'],
