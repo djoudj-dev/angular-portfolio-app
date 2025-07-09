@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
-import { ScrollService } from '@core/services/scroll.service';
+import { ScrollService } from '@app/core/services/scroll-service';
 import { NAVIGATION_ITEMS } from '../constants/navlink';
 
 @Component({

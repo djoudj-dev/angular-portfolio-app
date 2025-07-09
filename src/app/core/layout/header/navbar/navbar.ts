@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ScrollService } from '@core/services/scroll.service';
+import { ScrollService } from '@app/core/services/scroll-service';
 import { ButtonDarkMode } from '../button-dark-mode/button-dark-mode';
 import { NAVIGATION_ITEMS } from '../constants/navlink';
 import { NavMobile } from '../nav-mobile/nav-mobile';
