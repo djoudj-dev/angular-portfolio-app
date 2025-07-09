@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core'
-import { environment } from '@environments/environment'
+import { Injectable } from '@angular/core';
+import { environment } from '@environments/environment';
 import {
   AuthChangeEvent,
   AuthSession,
@@ -7,32 +7,34 @@ import {
   Session,
   SupabaseClient,
   User,
-} from '@supabase/supabase-js'
-
+} from '@supabase/supabase-js';
 
 export interface Profile {
-  id?: string
-  username: string
-  website: string
-  avatar_url: string
+  id?: string;
+  username: string;
+  website: string;
+  avatar_url: string;
 }
 
 @Injectable({
   providedIn: 'root',
 })
 export class SupabaseService {
-  private readonly supabase: SupabaseClient
-  _session: AuthSession | null = null
+  private readonly supabase: SupabaseClient;
+  _session: AuthSession | null = null;
 
   constructor() {
-    this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey)
+    this.supabase = createClient(
+      environment.supabaseUrl,
+      environment.supabaseKey,
+    );
   }
 
   get session() {
     this.supabase.auth.getSession().then(({ data }) => {
-      this._session = data.session
-    })
-    return this._session
+      this._session = data.session;
+    });
+    return this._session;
   }
 
   profile(user: User) {
@@ -40,35 +42,37 @@ export class SupabaseService {
       .from('profiles')
       .select(`username, website, avatar_url`)
       .eq('id', user.id)
-      .single()
+      .single();
   }
 
-  authChanges(callback: (event: AuthChangeEvent, session: Session | null) => void) {
-    return this.supabase.auth.onAuthStateChange(callback)
+  authChanges(
+    callback: (event: AuthChangeEvent, session: Session | null) => void,
+  ) {
+    return this.supabase.auth.onAuthStateChange(callback);
   }
 
   signIn(email: string) {
-    return this.supabase.auth.signInWithOtp({ email })
+    return this.supabase.auth.signInWithOtp({ email });
   }
 
   signOut() {
-    return this.supabase.auth.signOut()
+    return this.supabase.auth.signOut();
   }
 
   updateProfile(profile: Profile) {
     const update = {
       ...profile,
       updated_at: new Date(),
-    }
+    };
 
-    return this.supabase.from('profiles').upsert(update)
+    return this.supabase.from('profiles').upsert(update);
   }
 
   downLoadImage(path: string) {
-    return this.supabase.storage.from('avatars').download(path)
+    return this.supabase.storage.from('avatars').download(path);
   }
 
   uploadAvatar(filePath: string, file: File) {
-    return this.supabase.storage.from('avatars').upload(filePath, file)
+    return this.supabase.storage.from('avatars').upload(filePath, file);
   }
 }
