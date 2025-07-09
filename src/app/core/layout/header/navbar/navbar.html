@@ -1,0 +1,85 @@
+<nav
+  class="bg-background shadow-accent fixed top-0 left-0 z-50 w-full shadow-xs"
+  aria-label="Barre de navigation principale"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo à gauche -->
+      <div class="flex items-center">
+        <a
+          href="/"
+          class="flex items-center space-x-2 text-2xl font-bold text-primary hover:text-accent"
+        >
+          <img src="/logo.svg" alt="Julien.N" class="h-16 w-16 text-primary" />
+          <span>Julien.N</span>
+        </a>
+      </div>
+
+      <!-- Menu centré -->
+      <div class="hidden md:flex items-center justify-center flex-1">
+        <div class="flex space-x-6">
+          <a
+            href="/"
+            class="flex items-center space-x-2 text-text hover:text-accent"
+          >
+            <img
+              src="/navbar/home.svg"
+              alt="Accueil"
+              class="h-5 w-5 icon-invert"
+            />
+            <span>Accueil</span>
+          </a>
+          <a
+            href="/about"
+            class="flex items-center space-x-2 text-text hover:text-accent"
+          >
+            <img
+              src="/navbar/about.svg"
+              alt="À propos"
+              class="h-5 w-5 icon-invert"
+            />
+            <span>À propos</span>
+          </a>
+          <a
+            href="/skills"
+            class="flex items-center space-x-2 text-text hover:text-accent"
+          >
+            <img
+              src="/navbar/stack.svg"
+              alt="Mes compétences"
+              class="h-5 w-5 icon-invert"
+            />
+            <span>Mes compétences</span>
+          </a>
+          <a
+            href="/projects"
+            class="flex items-center space-x-2 text-text hover:text-accent"
+          >
+            <img
+              src="/navbar/project.svg"
+              alt="Mes projets"
+              class="h-5 w-5 icon-invert"
+            />
+            <span>Mes projets</span>
+          </a>
+          <a
+            href="/contact"
+            class="flex items-center space-x-2 text-text hover:text-accent"
+          >
+            <img
+              src="/navbar/contact.svg"
+              alt="Contact"
+              class="h-5 w-5 icon-invert"
+            />
+            <span>Contact</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Espace pour équilibrer (optionnel pour futurs éléments) -->
+      <div class="flex items-center">
+        <app-button-dark-mode />
+      </div>
+    </div>
+  </div>
+</nav>
