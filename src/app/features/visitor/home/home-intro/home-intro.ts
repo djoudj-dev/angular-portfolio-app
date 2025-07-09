@@ -1,8 +1,8 @@
-import { Component, inject } from '@angular/core';
-import { HomeLaptop } from '../home-laptop/home-laptop';
 import { NgOptimizedImage } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { ScrollService } from '@app/core/services/scroll-service';
 import { ButtonComponent } from '@app/shared/button/button';
-import { ScrollService } from '@app/core/services/scroll.service';
+import { HomeLaptop } from '../home-laptop/home-laptop';
 
 @Component({
   selector: 'app-home-intro',
