@@ -1,0 +1,53 @@
+<div class="relative md:hidden">
+  <button
+    (click)="toggleMenu()"
+    class="inline-flex items-center justify-center p-2 rounded-md text-text hover:text-accent hover:bg-background focus:outline-none focus:ring-2 focus:ring-accent transition-colors duration-200"
+    aria-expanded="false"
+    [attr.aria-expanded]="isMenuOpen()"
+    aria-label="Menu principal"
+  >
+    <span class="sr-only">Ouvrir le menu principal</span>
+    <div class="relative w-6 h-6">
+      @if (!isMenuOpen()) {
+        <img
+          src="/navbar/menu-mobile/open.svg"
+          alt="Ouvrir le menu"
+          class="absolute inset-0 h-6 w-6 icon-invert transition-all duration-200 opacity-100 rotate-0"
+        />
+      }
+      @if (isMenuOpen()) {
+        <img
+          src="/navbar/menu-mobile/close.svg"
+          alt="Fermer le menu"
+          class="absolute inset-0 h-6 w-6 icon-invert transition-all duration-200 opacity-100 rotate-90"
+        />
+      }
+    </div>
+  </button>
+
+  @if (isMenuOpen()) {
+    <div class="absolute top-full right-0 mt-2 w-64 z-50">
+      <div class="fixed inset-0 z-40" (click)="closeMenu()"></div>
+
+      <div
+        class="relative z-50 bg-background border border-accent rounded-lg shadow-lg overflow-hidden transform transition-all duration-200 ease-out scale-100 opacity-100"
+      >
+        <div class="py-2">
+          @for (item of navigationItems; track item.label) {
+            <button
+              (click)="onNavigationClick(item.fragment)"
+              class="flex items-center space-x-3 px-4 py-3 text-sm font-medium text-text hover:text-accent hover:bg-accent/10 transition-colors duration-200 group w-full text-left"
+            >
+              <img
+                [src]="item.icon"
+                [alt]="item.altText"
+                class="h-6 w-6 icon-invert transition-transform duration-200 group-hover:scale-110"
+              />
+              <span class="flex-1">{{ item.label }}</span>
+            </button>
+          }
+        </div>
+      </div>
+    </div>
+  }
+</div>
