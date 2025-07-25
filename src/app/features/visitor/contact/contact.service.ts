@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from '../../../../environments/environment';
+import { environment } from '@environments/environment';
 import {
   ContactForm,
   ContactFormResponse,
@@ -12,7 +12,7 @@ import {
 })
 export class ContactService {
   private readonly http = inject(HttpClient);
-  private readonly apiUrl = environment.supabaseUrl;
+  private readonly apiUrl = environment.apiUrl;
 
   sendContactForm(formData: ContactForm): Observable<ContactFormResponse> {
     return this.http.post<ContactFormResponse>(

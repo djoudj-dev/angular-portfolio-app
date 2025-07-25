@@ -1,6 +1,6 @@
 import { NgOptimizedImage } from '@angular/common';
 import { Component, input, output } from '@angular/core';
-import { ButtonComponent } from '../../../../shared/button/button';
+import { ButtonComponent } from '@shared/button/button';
 
 export type SubmissionStatus = 'success' | 'error';
 
@@ -12,7 +12,7 @@ export type SubmissionStatus = 'success' | 'error';
       <div class="text-center">
         @if (status() === 'success') {
           <img
-            [ngSrc]="'icons/contact/success.svg'"
+            [ngSrc]="'contact/success.svg'"
             alt="Error icon"
             class="mx-auto h-48 w-48"
             width="128"
@@ -28,7 +28,7 @@ export type SubmissionStatus = 'success' | 'error';
           </p>
         } @else {
           <img
-            [ngSrc]="'icons/contact/error.svg'"
+            [ngSrc]="'contact/error.svg'"
             alt="Error icon"
             class="mx-auto h-48 w-48"
             width="128"

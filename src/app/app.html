@@ -1,25 +1,26 @@
-<header id="header">
-  <app-navbar />
-</header>
+<router-outlet></router-outlet>
 
-<main id="main-content" role="main" class="bg-background">
-  <section id="home">
-    <app-home />
-  </section>
-  <section id="about">
-    <app-about />
-  </section>
-  <section id="skills">
-    <app-skills />
-  </section>
-  <section id="projects">
-    <app-project />
-  </section>
-  <section id="contact">
-    <app-contact />
-  </section>
-</main>
+@if (!router.url.includes('admin')) {
+  <header id="header">
+    <app-navbar />
+  </header>
 
-<footer id="footer">
-  <app-footer />
-</footer>
+  <main id="main-content" role="main" class="bg-background">
+    <section id="about">
+      <app-about />
+    </section>
+    <section id="skills">
+      <app-skills />
+    </section>
+    <section id="projects">
+      <app-project />
+    </section>
+    <section id="contact">
+      <app-contact />
+    </section>
+  </main>
+
+  <footer id="footer">
+    <app-footer />
+  </footer>
+}
