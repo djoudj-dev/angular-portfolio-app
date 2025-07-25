@@ -1,0 +1,62 @@
+<div class="min-h-screen bg-background">
+  <!-- Header -->
+  <header class="bg-white dark:bg-primary-900 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-primary-600 dark:text-primary-300">Admin Dashboard</h1>
+      <button
+        (click)="logout()"
+        class="px-4 py-2 bg-secondary-100 hover:bg-secondary-200 dark:bg-secondary-800 dark:hover:bg-secondary-700 text-secondary-700 dark:text-secondary-200 rounded-md transition duration-300"
+      >
+        Logout
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Stats Section -->
+    <section class="mb-8">
+      <h2 class="text-xl font-semibold text-secondary-800 dark:text-secondary-200 mb-4">Dashboard Overview</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        @for (stat of stats; track stat.title) {
+          <div class="bg-white dark:bg-primary-800 rounded-lg shadow p-6">
+            <div class="flex justify-between items-start">
+              <div>
+                <p class="text-sm text-secondary-500 dark:text-secondary-400">{{ stat.title }}</p>
+                <p class="text-2xl font-bold text-secondary-900 dark:text-white mt-1">{{ stat.value }}</p>
+              </div>
+              <span class="text-accent-500">
+                <!-- Icon placeholder -->
+                <svg class="w-6 h-6" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                </svg>
+              </span>
+            </div>
+            <p class="text-sm mt-2"
+               [class.text-green-500]="stat.change.startsWith('+')"
+               [class.text-red-500]="stat.change.startsWith('-')">
+              {{ stat.change }} from last month
+            </p>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- Recent Activities Section -->
+    <section>
+      <h2 class="text-xl font-semibold text-secondary-800 dark:text-secondary-200 mb-4">Recent Activities</h2>
+      <div class="bg-white dark:bg-primary-800 rounded-lg shadow overflow-hidden">
+        <ul class="divide-y divide-secondary-200 dark:divide-secondary-700">
+          @for (activity of recentActivities; track activity.action) {
+            <li class="p-4 hover:bg-secondary-50 dark:hover:bg-primary-700 transition duration-150">
+              <div class="flex justify-between">
+                <p class="text-secondary-800 dark:text-secondary-200">{{ activity.action }}</p>
+                <p class="text-sm text-secondary-500 dark:text-secondary-400">{{ activity.time }}</p>
+              </div>
+            </li>
+          }
+        </ul>
+      </div>
+    </section>
+  </main>
+</div>
